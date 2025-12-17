@@ -1,4 +1,232 @@
-body{
-    margin: 0;
-    padding: 0;
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", sans-serif;
+  color: var(--black);
+  background: linear-gradient(#ffffff, #fafafa);
+  line-height: 1.6;
+}
+
+:root {
+  --white: #ffffff;
+  --black: #0b0b0b;
+  --gold: #c9a24d;
+  --gold-soft: #ead9a8;
+  --gray: #f5f5f5;
+}
+
+/*-- INDEX PAGE --*/
+
+.mainText {
+  border-bottom: 2px solid var(--gold);
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Playfair Display", serif;
+  letter-spacing: 0.5px;
+  text-align: center;
+}
+
+h1 {
+  font-size: 64px;
+  margin-bottom: 10px;
+}
+
+h2 {
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+h3 {
+  font-size: 26px;
+  margin-bottom: 15px;
+}
+
+.main {
+  text-align: center;
+  padding: 40px 0;
+}
+
+.joinUsButton {
+  display: inline-block;
+  background: transparent;
+  color: var(--gold);
+  text-decoration: none;
+  padding: 14px 36px;
+  border: 1.5px solid var(--gold);
+  border-radius: 50px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  transition: 0.3s ease;
+}
+
+.joinUsButton:hover {
+  background: var(--gold);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(201, 162, 77, 0.35);
+}
+
+.secondParagraph {
+  background-color: var(--black);
+  color: white;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  padding: 80px 60px;
+  text-align: center;
+}
+
+.imagesFirst {
+  width: 80%;
+  height: 350px;
+  margin: auto;
+  border-radius: 16px;
+  transition: 0.3s ease;
+}
+
+.imagesFirst:hover {
+  transform: scale(1.05);
+}
+
+.title {
+  padding-top: 30px;
+  margin-bottom: 40px;
+}
+
+.directors {
+  background-color: #fff;
+  padding: 60px 20px;
+  text-align: left;
+  max-width: 1000px;
+  margin: 0 auto;
+  font-family: "Poppins", sans-serif;
+}
+
+.directors h3 {
+  font-family: "Playfair Display", serif;
+  font-size: 36px;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 50px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border-bottom: 2px solid var(--gold);
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+.directors .profile {
+  margin-bottom: 40px;
+}
+
+.directors .profile:hover {
+  transform: translateY(-3px);
+  transition: 0.3s ease-in-out;
+}
+
+.directors .profile b {
+  display: block;
+  font-size: 22px;
+  color: var(--black);
+  margin-bottom: 10px;
+}
+
+.directors .profile p {
+  font-size: 16px;
+  color: #1a1a1a;
+  line-height: 1.6;
+}
+
+/*-- FOR 1024 --*/
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .imagesFirst {
+    height: 250px;
+  }
+}
+
+/*-- FOR 768 --*/
+
+@media screen and (min-width: 427px) and (max-width: 768px) {
+  .secondParagraph {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .imagesFirst {
+    width: 85%;
+    height: 350px;
+  }
+
+  h1 {
+    font-size: 44px;
+  }
+
+  h2 {
+    font-size: 30px;
+  }
+
+  h3 {
+    font-size: 16px;
+  }
+
+  .directors h3{
+    font-size: 30px;
+  }
+
+  .directors .profile b{
+    font-size: 20px;
+  }
+}
+
+/*-- FOR 425--*/
+
+@media screen and (min-width: 377px) and (max-width: 426px) {
+  .secondParagraph {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
+  h2 {
+    font-size: 28px; 
+  }
+  p {
+    font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 376px){
+    .secondParagraph {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+/* -- FOR 376 -- */
+@media  screen and (max-width: 376px) {
+    .imagesFirst{
+        height: 280px;
+    }
+
+    h2{
+        font-size: 30px;
+    }
+    
+    p {
+        font-size: 13px;
+    }
+
+    .directors h3 {
+        font-size: 30px;
+    }
+
+    .directors .profile p {
+        font-size: 15px;
+    }
+
+    .directors .profile b {
+        font-size: 20px;
+    }
 }

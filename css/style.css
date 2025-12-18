@@ -119,7 +119,7 @@ h3 {
 }
 
 .directors .profile {
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 
 .directors .profile:hover {
@@ -139,6 +139,22 @@ h3 {
   color: #1a1a1a;
   line-height: 1.6;
 }
+
+/*-- ABOUT US PAGE --*/
+
+.about {
+  background-color: var(--white);
+  padding: 0;
+  margin: 0;
+}
+
+.about-tagline {
+  margin-top: 32px;
+  font-weight: 600;
+  color: var(--gold);
+  letter-spacing: 0.04em;
+}
+
 
 /*-- FOR 1024 --*/
 

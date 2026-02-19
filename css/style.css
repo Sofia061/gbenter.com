@@ -208,6 +208,24 @@ h3 {
   transform: translateX(4px);
 }
 
+/* ONLY FOR COVERS BLOCK */
+
+.covers {
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.workCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.workCard img {
+  margin-bottom: 10px;
+}
+
+
 
 /*-- FOR 1024 --*/
 

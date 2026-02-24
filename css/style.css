@@ -183,7 +183,6 @@ h3 {
   margin-bottom: 4px;
 }
 
-
 .joinUsButton2 {
   display: inline-block;
   margin-top: 6px;
@@ -200,7 +199,9 @@ h3 {
   padding: 0;
 
   opacity: 0.75;
-  transition: opacity 0.25s ease, transform 0.25s ease;
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
 }
 
 .joinUsButton2:hover {
@@ -212,7 +213,7 @@ h3 {
 
 .covers {
   grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
+  gap: 30px 50px;
 }
 
 .workCard {
@@ -225,13 +226,21 @@ h3 {
   margin-bottom: 10px;
 }
 
-
-
 /*-- FOR 1024 --*/
 
 @media screen and (min-width: 769px) and (max-width: 1024px) {
   .imagesFirst {
     height: 250px;
+  }
+
+  .thirdParagraph {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 60px 20px;
+  }
+
+  .covers {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -267,6 +276,20 @@ h3 {
   .directors .profile b {
     font-size: 20px;
   }
+
+  .thirdParagraph {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+    padding: 50px 20px;
+  }
+
+  .covers {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .authorSongs {
+    font-size: 17px;
+  }
 }
 
 /*-- FOR 425--*/
@@ -282,17 +305,32 @@ h3 {
   p {
     font-size: 15px;
   }
-}
+  .thirdParagraph {
+    grid-template-columns: 1fr;
+    gap: 25px;
+    padding: 30px 15px;
+  }
 
-@media screen and (max-width: 376px) {
-  .secondParagraph {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
+  .authorSongs {
+    font-size: 15px;
+  }
+
+  .joinUsButton2 {
+    font-size: 11px;
+  }
+
+  .thirdParagraph:not(.covers) .imagesSecond {
+    width: 70%;
   }
 }
 
 /* -- FOR 376 -- */
 @media screen and (max-width: 376px) {
+  .secondParagraph {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
+
   .imagesFirst {
     height: 280px;
   }
@@ -315,5 +353,22 @@ h3 {
 
   .directors .profile b {
     font-size: 20px;
+  }
+  .thirdParagraph {
+    grid-template-columns: 1fr;
+    gap: 25px;
+    padding: 30px 15px;
+  }
+
+  .authorSongs {
+    font-size: 15px;
+  }
+
+  .joinUsButton2 {
+    font-size: 11px;
+  }
+
+  .thirdParagraph:not(.covers) .imagesSecond {
+    width: 70%;
   }
 }

@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/navbar.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/footer.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <title>Contact Page</title>
+  </head>
+  <body>
+    <nav class="navbar">
+      <a href="../index.html">Home Page</a>
+      <a href="our_artists.html">Our Artists</a>
+      <div class="aboutUs">
+        <button class="aboutUsBtn">About Us &#9662;</button>
+        <div class="aboutUs-content">
+          <a href="about_us.html">About Us</a>
+          <a href="our_works.html">Our Works</a>
+          <a href="https://www.photo-pick.com/online/H8vS5PyL.link"
+            >Photobook</a
+          >
+        </div>
+      </div>
+      <a href="audition.html">Audition Page</a>
+      <a href="#">Contacts</a>
+    </nav>
+
+    <section class="contact-hero">
+      <h1>Let’s Create Something Beautiful</h1>
+      <p>
+        Whether you're an artist, producer, or listener — we’d love to hear from
+        you.
+      </p>
+    </section>
+
+    <section class="contact-form-section">
+      <h2>Send a Message</h2>
+
+      <form id="contact-form" class="contact-form">
+        <input type="text" name="name" placeholder="Your Name" required />
+        <input type="email" name="email" placeholder="Your Email" required />
+
+        <select name="title">
+          <option>Collaboration</option>
+          <option>General Question</option>
+        </select>
+
+        <textarea name="message" placeholder="Your Message"></textarea>
+
+        <button type="submit">Send Message</button>
+      </form>
+    </section>
+
+    <section class="socials">
+      <a href="https://t.me/gbentertainmentso">Telegram</a>
+      <a href="https://www.tiktok.com/@gb_.entertainment?_t=ZM-8sjWHcm8hTK&_r=1">TikTok</a>
+      <a href="https://youtube.com/@gb_entertainment_?si=3-x8skR8AmzRW6mw">YouTube</a>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-content">
+        <img
+          src="../img/fotor-20240206184618.png"
+          class="logo"
+          alt="GB ENTERTAINMENT logo"
+        />
+
+        <div class="footer-text">
+          <span>
+            Telegram channel:
+            <a href="https://t.me/gbentertainmentso">@gbentertainmentso</a> |
+            Email:
+            <a href="mailto:gbentertainmentso@gmail.com">
+              gbentertainmentso@gmail.com
+            </a>
+          </span>
+          <span>Copyright © 2026 GB ENTERTAINMENT</span>
+        </div>
+      </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+    <script>
+      (function () {
+        emailjs.init("1LM3mNNHkRt3_n39I");
+      })();
+
+      document
+        .getElementById("contact-form")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          emailjs.sendForm("service_1qou7fm", "template_93xyqmd", this).then(
+            function () {
+              alert("Message sent successfully!");
+            },
+            function (error) {
+              alert("Failed to send message.");
+              console.log(error);
+            },
+          );
+        });
+    </script>
+  </body>
+</html>

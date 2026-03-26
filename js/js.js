@@ -80,23 +80,3 @@ filterButtons.forEach((button) => {
     });
   });
 });
-
-document.addEventListener("DOMContentLoaded", function () {
-  emailjs.init("1LM3mNNHkRt3_n39I");
-
-  document
-    .getElementById("contact-form")
-    .addEventListener("submit", function (e) {
-      e.preventDefault();
-
-      emailjs.sendForm("service_t694o9z", "template_93xyqmd", this).then(
-        function () {
-          alert("Message sent successfully!");
-        },
-        function (error) {
-          alert("Failed to send message.");
-          console.log(error);
-        },
-      );
-    });
-});

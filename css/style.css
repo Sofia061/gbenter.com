@@ -518,6 +518,15 @@ hr {
   text-decoration: underline;
 }
 
+#form_status {
+  display: none;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 5px;
+  text-align: center;
+  font-weight: bold;
+}
+
 /*-- FOR 1024 --*/
 
 @media screen and (min-width: 769px) and (max-width: 1024px) {

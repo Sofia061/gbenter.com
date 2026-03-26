@@ -43,14 +43,22 @@
 
       <form id="contact-form" class="contact-form">
         <input type="text" name="name" placeholder="Your Name" required />
-        <input type="email" name="email" placeholder="Your Email" required />
+        <input
+          type="email"
+          name="email"
+          placeholder="Your Email"
+          required
+          pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+        />
 
         <select name="title">
           <option>Collaboration</option>
           <option>General Question</option>
         </select>
 
-        <textarea name="message" placeholder="Your Message"></textarea>
+        <textarea name="message" placeholder="Your Message" required></textarea>
+
+        <div id="form-status"></div>
 
         <button type="submit">Send Message</button>
       </form>
@@ -58,8 +66,12 @@
 
     <section class="socials">
       <a href="https://t.me/gbentertainmentso">Telegram</a>
-      <a href="https://www.tiktok.com/@gb_.entertainment?_t=ZM-8sjWHcm8hTK&_r=1">TikTok</a>
-      <a href="https://youtube.com/@gb_entertainment_?si=3-x8skR8AmzRW6mw">YouTube</a>
+      <a href="https://www.tiktok.com/@gb_.entertainment?_t=ZM-8sjWHcm8hTK&_r=1"
+        >TikTok</a
+      >
+      <a href="https://youtube.com/@gb_entertainment_?si=3-x8skR8AmzRW6mw"
+        >YouTube</a
+      >
     </section>
 
     <footer class="footer">
@@ -95,13 +107,48 @@
         .addEventListener("submit", function (e) {
           e.preventDefault();
 
+          const statusBox = document.getElementById("form-status");
+          const emailField = this.querySelector('input[name="email"]');
+          const submitBtn = this.querySelector('button[type="submit"]'); 
+
+          const showStatus = (text, isError) => {
+            statusBox.textContent = text;
+            statusBox.style.display = "block";
+            statusBox.style.backgroundColor = isError ? "#f8d7da" : "#d4edda"; 
+            statusBox.style.color = isError ? "#721c24" : "#155724"; 
+            statusBox.style.border = `1px solid ${isError ? "#f5c6cb" : "#c3e6cb"}`;
+          };
+
+          const emailRegex = /^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$/;
+          if (!emailRegex.test(emailField.value)) {
+            showStatus(
+              "Please enter a valid email address (e.g., name@example.com)",
+              true,
+            );
+            emailField.focus();
+            return;
+          }
+
+          showStatus("Sending message...", false);
+          statusBox.style.backgroundColor = "#e2e3e5";
+          statusBox.style.color = "#383d41";
+
+          if (submitBtn) submitBtn.disabled = true;
+
           emailjs.sendForm("service_1qou7fm", "template_93xyqmd", this).then(
             function () {
-              alert("Message sent successfully!");
+              showStatus("✓ Message sent successfully!", false);
+              document.getElementById("contact-form").reset();
+              if (submitBtn) submitBtn.disabled = false;
+
+              setTimeout(() => {
+                statusBox.style.display = "none";
+              }, 5000);
             },
             function (error) {
-              alert("Failed to send message.");
-              console.log(error);
+              showStatus("× Failed to send. Please try again later.", true);
+              console.error("EmailJS Error:", error);
+              if (submitBtn) submitBtn.disabled = false;
             },
           );
         });

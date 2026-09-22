@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../css/navbar.css" />
+    <link rel="stylesheet" href="../../css/style.css" />
+    <link rel="stylesheet" href="../../css/footer.css" />
+    <title>Solo Artists Audition</title>
+  </head>
+  <body>
+    <section class="rules-section">
+      <h2>Artist Rules</h2>
+      <div class="rules-box" id="rulesBox">
+        <h3>1. Mutual Respect & Communication</h3>
+        <p>
+          We value a friendly atmosphere, mutual respect, and open communication
+          between artists and the team.
+        </p>
+        <h3>2. Professional Approach</h3>
+        <p>
+          Artists must be disciplined, responsible, and committed to
+          improvement.
+        </p>
+        <h3>3. Coordination of Decisions</h3>
+        <p>All important career decisions must be discussed with directors.</p>
+        <h3>4. Confidentiality</h3>
+        <p>
+          All company information is strictly confidential and cannot be shared.
+        </p>
+        <h3>5. Experience</h3>
+        <p>
+          We expect training, performance experience, social media presence,
+          achievements, and professionalism.
+        </p>
+        <h3>6. Artist Rating System</h3>
+        <p>
+          Artists are evaluated every 6 months. Low performance may lead to
+          removal.
+        </p>
+        <h3>7. Clean-ups</h3>
+        <p>Inactive or low-quality artists may be removed after review.</p>
+        <h3>Prohibited Actions</h3>
+        <p>
+          Disrespect, rule violations, use of prototypes, joining other
+          companies.
+        </p>
+        <p><strong>Incorrect applications will not be reviewed.</strong></p>
+        <p><strong>Only successful candidates will be contacted.</strong></p>
+      </div>
+
+      <label>
+        <input type="checkbox" id="acceptRules" disabled />
+        I have read and accept the rules
+      </label>
+    </section>
+
+    <form id="artist-form" class="disabled" enctype="multipart/form-data">
+      <input type="text" name="name" placeholder="First Name Only" required />
+      <input type="text" name="stage_name" placeholder="Stage Name" required />
+      <input type="number" name="age" placeholder="Age" required />
+      <textarea
+        name="experience"
+        placeholder="Describe your experience"
+      ></textarea>
+      <textarea
+        name="professional_experience"
+        placeholder="Professional experience (if any)"
+      ></textarea>
+      <input
+        type="text"
+        name="main_platform"
+        placeholder="Main platform + username"
+      />
+      <input
+        type="text"
+        name="other_socials"
+        placeholder="Other social media"
+      />
+      <label>Upload Photos</label>
+      <input type="file" name="photos" accept="image/*" multiple required />
+      <label>Upload Audio (Vocals/Rap)</label>
+      <input type="file" name="audio" accept="audio/*" required />
+      <button type="submit" disabled id="submitBtn">Submit Application</button>
+    </form>
+
+    <script src="../../js/js.js"></script>
+  </body>
+</html>

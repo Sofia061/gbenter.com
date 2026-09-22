@@ -274,6 +274,13 @@ h3 {
   cursor: pointer;
 }
 
+.artist-card3 {
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
 .artist-card img {
   width: 100%;
   height: 400px;
@@ -284,6 +291,15 @@ h3 {
 }
 
 .artist-card2 img {
+  width: 100%;
+  height: 400px;
+  object-position: center 50%;
+  object-fit: cover;
+  transition: 0.4s ease;
+  display: block;
+}
+
+.artist-card3 img {
   width: 100%;
   height: 400px;
   object-position: center 50%;
@@ -330,6 +346,10 @@ hr {
 }
 
 .artist-card2:hover img {
+  transform: scale(1.08);
+}
+
+.artist-card3:hover img {
   transform: scale(1.08);
 }
 
@@ -527,6 +547,21 @@ hr {
   font-weight: bold;
 }
 
+/*--AUDITION--*/
+
+.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.rules-box {
+  max-height: 250px;
+  overflow-y: scroll;
+  border: 1px solid #aaa;
+  padding: 15px;
+  margin-bottom: 10px;
+}
+
 /*-- FOR 1024 --*/
 
 @media screen and (min-width: 769px) and (max-width: 1024px) {
@@ -559,7 +594,8 @@ hr {
   }
 
   .artist-card img,
-  .artist-card2 img {
+  .artist-card2 img,
+  .artist-card3 img {
     height: 360px;
   }
 
@@ -652,7 +688,8 @@ hr {
   }
 
   .artist-card img,
-  .artist-card2 img {
+  .artist-card2 img,
+  .artist-card3 img {
     height: 360px;
   }
 
@@ -765,7 +802,8 @@ hr {
   }
 
   .artist-card img,
-  .artist-card2 img {
+  .artist-card2 img,
+  .artist-card3 img {
     height: 360px;
   }
 
@@ -917,7 +955,8 @@ hr {
   }
 
   .artist-card img,
-  .artist-card2 img {
+  .artist-card2 img,
+  .artist-card3 img {
     height: 320px;
   }
 

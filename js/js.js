@@ -1,5 +1,6 @@
 const cards = document.querySelectorAll(".artist-card");
 const cards2 = document.querySelectorAll(".artist-card2");
+const cards3 = document.querySelectorAll(".artist-card3");
 const modal = document.getElementById("artistModal");
 const modalImg = document.getElementById("modalImg");
 const modalName = document.getElementById("modalName");
@@ -29,6 +30,17 @@ cards2.forEach((card) => {
   });
 });
 
+cards3.forEach((card) => {
+  card.addEventListener("click", () => {
+    modal.style.display = "flex";
+    modalImg.src = card.dataset.img;
+    modalImg.style.objectPosition = card.dataset.position || "center 40%";
+    modalName.textContent = card.dataset.name;
+    modalRole.textContent = card.dataset.role;
+    modalDescription.innerHTML = card.dataset.description;
+  });
+});
+
 closeBtn.addEventListener("click", () => {
   modal.style.display = "none";
 });
@@ -42,6 +54,7 @@ window.addEventListener("click", (e) => {
 const filterButtons = document.querySelectorAll(".filter-btn");
 const artists = document.querySelectorAll(".artist-card");
 const artists2 = document.querySelectorAll(".artist-card2");
+const artists3 = document.querySelectorAll(".artist-card3");
 
 filterButtons.forEach((button) => {
   button.addEventListener("click", () => {
@@ -79,4 +92,53 @@ filterButtons.forEach((button) => {
       }
     });
   });
+});
+
+filterButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    document.querySelector(".filter-btn.active").classList.remove("active");
+    button.classList.add("active");
+
+    const filter = button.dataset.filter;
+
+    artists3.forEach((artist) => {
+      if (filter === "all") {
+        artist.style.display = "block";
+      } else if (artist.classList.contains(filter)) {
+        artist.style.display = "block";
+      } else {
+        artist.style.display = "none";
+      }
+    });
+  });
+});
+
+function setFormDisabled(disabled) {
+  const form = document.getElementById("artist-form");
+  const submitBtn = document.getElementById("submitBtn");
+
+  if (disabled) {
+    form.classList.add("disabled");
+    submitBtn.disabled = true;
+  } else {
+    form.classList.remove("disabled");
+    submitBtn.disabled = false;
+  }
+}
+
+const rulesBox = document.getElementById("rulesBox");
+const checkbox = document.getElementById("acceptRules");
+const form = document.getElementById("artist-form");
+
+checkbox.disabled = true;
+setFormDisabled(true);
+
+rulesBox.addEventListener("scroll", () => {
+  if (rulesBox.scrollTop + rulesBox.clientHeight >= rulesBox.scrollHeight) {
+    checkbox.disabled = false;
+  }
+});
+
+checkbox.addEventListener("change", () => {
+  setFormDisabled(!checkbox.checked);
 });

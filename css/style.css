@@ -547,22 +547,339 @@ hr {
   font-weight: bold;
 }
 
-/*--AUDITION--*/
+/* AUDITION MAIN PAGE */
 
-.disabled {
-  opacity: 0.5;
-  pointer-events: none;
+.audition-page {
+  background: var(--white);
+  color: var(--black);
 }
 
-.rules-box {
-  max-height: 250px;
-  overflow-y: scroll;
-  border: 1px solid #aaa;
-  padding: 15px;
-  margin-bottom: 10px;
+.audition-hero {
+  max-width: 950px;
+  margin: 0 auto;
+  padding: 100px 30px 80px;
+  text-align: center;
 }
 
-/*-- FOR 1024 --*/
+.audition-small-title {
+  margin-bottom: 18px;
+  color: var(--gold);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+
+.audition-hero h1 {
+  margin: 0 auto 30px;
+  font-family: "Playfair Display", serif;
+  font-size: 64px;
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+.audition-intro {
+  max-width: 720px;
+  margin: 0 auto 18px;
+  font-size: 21px;
+  line-height: 1.6;
+}
+
+.audition-description {
+  max-width: 680px;
+  margin: 0 auto;
+  color: #666;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.audition-categories {
+  max-width: 1150px;
+  margin: 0 auto;
+  padding: 60px 30px 100px;
+  text-align: center;
+}
+
+.audition-categories h2 {
+  margin-bottom: 12px;
+  font-family: "Playfair Display", serif;
+  font-size: 42px;
+  font-weight: 600;
+}
+
+.category-description {
+  margin-bottom: 50px;
+  color: #666;
+  font-size: 16px;
+}
+
+.category-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 35px;
+  max-width: 1050px;
+  margin: 0 auto;
+}
+
+.category-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 330px;
+  padding: 45px;
+  box-sizing: border-box;
+  color: var(--black);
+  background: var(--white);
+  border: 1px solid #dedede;
+  border-top: 3px solid var(--gold);
+  border-radius: 12px;
+  text-align: left;
+  text-decoration: none;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.category-number {
+  margin-bottom: 30px;
+  color: var(--gold);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.category-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.category-content h3 {
+  margin: 0 0 20px;
+  font-family: "Playfair Display", serif;
+  font-size: 38px;
+  font-weight: 600;
+}
+
+.category-content p {
+  max-width: 440px;
+  margin: 0 0 30px;
+  color: #555;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.apply-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: auto;
+  color: var(--black);
+  font-size: 15px;
+  font-weight: 700;
+  transition: color 0.3s ease;
+}
+
+.apply-link span {
+  color: var(--gold);
+  font-size: 22px;
+  transition: transform 0.3s ease;
+}
+
+.category-card:hover {
+  transform: translateY(-7px);
+  border-color: var(--gold);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.09);
+}
+
+.category-card:hover .apply-link {
+  color: var(--gold);
+}
+
+.category-card:hover .apply-link span {
+  transform: translateX(6px);
+}
+
+.audition-bottom {
+  position: relative;
+  padding: 70px 30px 80px;
+  background: var(--white);
+  color: var(--black);
+  text-align: center;
+}
+
+.audition-bottom-label {
+  margin: 0 0 18px;
+  color: var(--gold);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+
+.audition-bottom h2 {
+  position: relative;
+  margin: 0 0 30px;
+  padding-bottom: 22px;
+  font-family: "Playfair Display", serif;
+  font-size: 42px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.audition-bottom h2::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 300px;
+  height: 2px;
+  background: var(--gold);
+  border-radius: 2px;
+}
+
+.audition-bottom p:last-child {
+  max-width: 600px;
+  margin: 0 auto;
+  color: #666;
+  font-size: 16px;
+  line-height: 1.7;
+}
+/*AUDITION ARTIST PAGE*/
+
+.audition-page {
+  background: var(--white);
+  color: var(--black);
+}
+
+.audition-hero {
+  max-width: 950px;
+  margin: 0 auto;
+  padding: 80px 30px 40px;
+  text-align: center;
+}
+
+.audition-small-title {
+  margin-bottom: 12px;
+  color: var(--gold);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+
+.audition-hero h1 {
+  margin: 0 auto 20px;
+  font-family: "Playfair Display", serif;
+  font-size: 56px;
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+.audition-intro {
+  max-width: 680px;
+  margin: 0 auto;
+  color: #666;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.audition-categories {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 30px 100px;
+}
+
+.category-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 35px;
+}
+
+.category-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 280px;
+  padding: 45px;
+  box-sizing: border-box;
+  color: var(--black);
+  background: var(--white);
+  border: 1px solid #e2e2e2;
+  border-top: 3px solid var(--gold);
+  border-radius: 12px;
+  text-align: left;
+  text-decoration: none;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.category-number {
+  margin-bottom: 25px;
+  color: var(--gold);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.category-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.category-content h3 {
+  margin: 0 0 15px;
+  font-family: "Playfair Display", serif;
+  font-size: 38px;
+  font-weight: 600;
+  text-align: left;
+}
+
+.category-content p {
+  max-width: 440px;
+  margin: 0 0 30px;
+  color: #555;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.apply-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: auto;
+  color: var(--black);
+  font-size: 15px;
+  font-weight: 700;
+  transition: color 0.3s ease;
+}
+
+.apply-link span {
+  color: var(--gold);
+  font-size: 20px;
+  transition: transform 0.3s ease;
+}
+
+.category-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--gold);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.06);
+}
+
+.category-card:hover .apply-link {
+  color: var(--gold);
+}
+
+.category-card:hover .apply-link span {
+  transform: translateX(6px);
+}
+
+/*FOR 1024*/
 
 @media screen and (min-width: 769px) and (max-width: 1024px) {
   .imagesFirst {
@@ -623,6 +940,68 @@ hr {
 
   .contact-form-section {
     padding: 0 1.5rem;
+  }
+
+  .audition-main {
+    padding: 90px 30px 100px;
+  }
+
+  .audition-main h1 {
+    font-size: 50px;
+  }
+
+  .audition-options {
+    gap: 25px;
+  }
+
+  .audition-options .card {
+    padding: 40px 20px;
+  }
+
+  .audition-options .card h2 {
+    font-size: 28px;
+  }
+  .audition-hero {
+    padding: 80px 30px 60px;
+  }
+
+  .audition-hero h1 {
+    font-size: 56px;
+  }
+
+  .audition-categories {
+    padding: 50px 30px 80px;
+  }
+
+  .category-card {
+    min-height: 310px;
+
+    padding: 35px;
+  }
+
+  .category-content h3 {
+    font-size: 34px;
+  }
+
+  .audition-hero {
+    padding: 70px 30px 30px;
+  }
+
+  .audition-hero h1 {
+    font-size: 48px;
+  }
+
+  .category-cards {
+    gap: 25px;
+  }
+
+  .category-card {
+    padding: 35px;
+    min-height: 260px;
+  }
+
+  .category-content h3 {
+    font-size: 32px;
   }
 }
 
@@ -749,6 +1128,110 @@ hr {
 
   .contact-form-section h2 {
     font-size: 1.6rem;
+  }
+
+  .audition-main {
+    padding: 80px 25px 100px;
+  }
+
+  .audition-main h1 {
+    font-size: 45px;
+  }
+
+  .audition-main > p {
+    font-size: 16px;
+    margin-bottom: 45px;
+  }
+
+  .audition-options {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+    gap: 25px;
+  }
+
+  .audition-options .card {
+    min-height: 210px;
+    padding: 35px 25px;
+  }
+
+  .audition-options .card h2 {
+    font-size: 28px;
+  }
+
+  .aud-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  .aud-wrap {
+    padding-top: 50px;
+  }
+
+  .audition-hero {
+    padding: 70px 25px 50px;
+  }
+
+  .audition-hero h1 {
+    font-size: 48px;
+  }
+
+  .audition-intro {
+    font-size: 19px;
+  }
+
+  .audition-categories {
+    padding: 45px 25px 70px;
+  }
+
+  .audition-categories h2 {
+    font-size: 36px;
+  }
+
+  .category-cards {
+    grid-template-columns: 1fr;
+
+    max-width: 600px;
+
+    gap: 25px;
+  }
+
+  .category-card {
+    min-height: 280px;
+
+    padding: 35px;
+  }
+
+  .audition-bottom {
+    padding: 65px 25px;
+  }
+
+  .audition-bottom h2 {
+    font-size: 32px;
+  }
+
+  .audition-hero {
+    padding: 60px 20px 25px;
+  }
+
+  .audition-hero h1 {
+    font-size: 40px;
+  }
+
+  .audition-intro {
+    font-size: 16px;
+  }
+
+  .category-cards {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .category-card {
+    padding: 35px;
+    min-height: 240px;
+  }
+
+  .category-content h3 {
+    font-size: 30px;
   }
 }
 
@@ -886,9 +1369,185 @@ hr {
     flex-direction: column;
     gap: 0.5rem;
   }
+
+  .audition-main {
+    padding: 60px 15px 80px;
+  }
+
+  .audition-main h1 {
+    font-size: 38px;
+  }
+
+  .audition-main > p {
+    font-size: 15px;
+    margin-bottom: 35px;
+  }
+
+  .audition-options {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .audition-options .card {
+    min-height: 190px;
+    padding: 30px 20px;
+  }
+
+  .audition-options .card h2 {
+    font-size: 25px;
+  }
+
+  .audition-options .card p {
+    font-size: 14px;
+    margin-bottom: 25px;
+  }
+
+  .audition-options .card a {
+    padding: 10px 30px;
+    font-size: 14px;
+  }
+
+  .aud-grid,
+  .aud-grid-2 {
+    grid-template-columns: 1fr;
+  }
+  .contact-hero .divider {
+    width: 150px;
+  }
+  .aud-rules {
+    padding: 5px 18px;
+  }
+  .aud-field input,
+  .aud-field textarea,
+  .aud-field select {
+    font-size: 14px;
+    padding: 11px;
+  }
+
+  .audition-hero {
+    padding: 55px 18px 40px;
+  }
+
+  .audition-small-title {
+    font-size: 12px;
+
+    letter-spacing: 3px;
+  }
+
+  .audition-hero h1 {
+    font-size: 38px;
+
+    line-height: 1.15;
+  }
+
+  .audition-intro {
+    font-size: 17px;
+
+    line-height: 1.5;
+  }
+
+  .audition-description {
+    font-size: 15px;
+
+    line-height: 1.7;
+  }
+
+  .audition-categories {
+    padding: 40px 18px 60px;
+  }
+
+  .audition-categories h2 {
+    font-size: 32px;
+  }
+
+  .category-description {
+    margin-bottom: 30px;
+
+    font-size: 15px;
+  }
+
+  .category-cards {
+    gap: 20px;
+  }
+
+  .category-card {
+    min-height: 260px;
+
+    padding: 28px;
+  }
+
+  .category-number {
+    margin-bottom: 20px;
+
+    font-size: 13px;
+  }
+
+  .category-content h3 {
+    font-size: 30px;
+
+    margin-bottom: 15px;
+  }
+
+  .category-content p {
+    font-size: 15px;
+
+    line-height: 1.6;
+  }
+
+  .apply-link {
+    font-size: 14px;
+  }
+
+  .audition-bottom {
+    padding: 55px 20px;
+  }
+
+  .audition-bottom h2 {
+    font-size: 28px;
+  }
+
+  .audition-bottom p {
+    font-size: 15px;
+  }
+  .audition-hero {
+    padding: 50px 18px 20px;
+  }
+
+  .audition-hero h1 {
+    font-size: 34px;
+  }
+
+  .audition-intro {
+    font-size: 15px;
+  }
+
+  .category-cards {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .category-card {
+    padding: 28px;
+    min-height: 230px;
+  }
+
+  .category-number {
+    margin-bottom: 15px;
+  }
+
+  .category-content h3 {
+    font-size: 28px;
+    margin-bottom: 12px;
+  }
+
+  .category-content p {
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
 }
 
 /* -- FOR 376 -- */
+
 @media screen and (max-width: 376px) {
   .secondParagraph {
     display: grid;
@@ -1036,5 +1695,130 @@ hr {
   .socials {
     flex-direction: column;
     gap: 0.4rem;
+  }
+
+  .audition-main {
+    padding: 50px 12px 70px;
+  }
+
+  .audition-main h1 {
+    font-size: 34px;
+  }
+
+  .audition-main > p {
+    font-size: 14px;
+    margin-bottom: 30px;
+  }
+
+  .audition-options {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .audition-options .card {
+    min-height: 180px;
+    padding: 25px 15px;
+  }
+
+  .audition-options .card h2 {
+    font-size: 23px;
+  }
+
+  .audition-options .card p {
+    font-size: 13px;
+    margin-bottom: 22px;
+  }
+
+  .audition-options .card a {
+    padding: 9px 27px;
+    font-size: 13px;
+  }
+
+  .audition-hero {
+    padding: 45px 15px 35px;
+  }
+
+  .audition-hero h1 {
+    font-size: 34px;
+  }
+
+  .audition-intro {
+    font-size: 16px;
+  }
+
+  .audition-description {
+    font-size: 14px;
+  }
+
+  .audition-categories {
+    padding: 35px 15px 50px;
+  }
+
+  .audition-categories h2 {
+    font-size: 29px;
+  }
+
+  .category-card {
+    min-height: 245px;
+
+    padding: 24px;
+  }
+
+  .category-content h3 {
+    font-size: 28px;
+  }
+
+  .category-content p {
+    font-size: 14px;
+  }
+
+  .audition-bottom {
+    padding: 45px 18px;
+  }
+
+  .audition-bottom h2 {
+    font-size: 25px;
+  }
+
+  .audition-hero {
+    padding: 40px 15px 15px;
+  }
+
+  .audition-hero h1 {
+    font-size: 30px;
+  }
+
+  .audition-intro {
+    font-size: 14px;
+  }
+
+  .category-cards {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .category-card {
+    padding: 22px;
+    min-height: 220px;
+  }
+
+  .category-number {
+    margin-bottom: 12px;
+    font-size: 13px;
+  }
+
+  .category-content h3 {
+    font-size: 25px;
+    margin-bottom: 10px;
+  }
+
+  .category-content p {
+    font-size: 13px;
+    line-height: 1.5;
+    margin-bottom: 18px;
+  }
+
+  .apply-link {
+    font-size: 13px;
   }
 }

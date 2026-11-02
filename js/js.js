@@ -112,33 +112,3 @@ filterButtons.forEach((button) => {
     });
   });
 });
-
-function setFormDisabled(disabled) {
-  const form = document.getElementById("artist-form");
-  const submitBtn = document.getElementById("submitBtn");
-
-  if (disabled) {
-    form.classList.add("disabled");
-    submitBtn.disabled = true;
-  } else {
-    form.classList.remove("disabled");
-    submitBtn.disabled = false;
-  }
-}
-
-const rulesBox = document.getElementById("rulesBox");
-const checkbox = document.getElementById("acceptRules");
-const form = document.getElementById("artist-form");
-
-checkbox.disabled = true;
-setFormDisabled(true);
-
-rulesBox.addEventListener("scroll", () => {
-  if (rulesBox.scrollTop + rulesBox.clientHeight >= rulesBox.scrollHeight) {
-    checkbox.disabled = false;
-  }
-});
-
-checkbox.addEventListener("change", () => {
-  setFormDisabled(!checkbox.checked);
-});

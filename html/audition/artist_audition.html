@@ -6,84 +6,132 @@
     <link rel="stylesheet" href="../../css/navbar.css" />
     <link rel="stylesheet" href="../../css/style.css" />
     <link rel="stylesheet" href="../../css/footer.css" />
-    <title>Solo Artists Audition</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <title>Artist Audition | GB ENTERTAINMENT</title>
   </head>
   <body>
-    <section class="rules-section">
-      <h2>Artist Rules</h2>
-      <div class="rules-box" id="rulesBox">
-        <h3>1. Mutual Respect & Communication</h3>
-        <p>
-          We value a friendly atmosphere, mutual respect, and open communication
-          between artists and the team.
-        </p>
-        <h3>2. Professional Approach</h3>
-        <p>
-          Artists must be disciplined, responsible, and committed to
-          improvement.
-        </p>
-        <h3>3. Coordination of Decisions</h3>
-        <p>All important career decisions must be discussed with directors.</p>
-        <h3>4. Confidentiality</h3>
-        <p>
-          All company information is strictly confidential and cannot be shared.
-        </p>
-        <h3>5. Experience</h3>
-        <p>
-          We expect training, performance experience, social media presence,
-          achievements, and professionalism.
-        </p>
-        <h3>6. Artist Rating System</h3>
-        <p>
-          Artists are evaluated every 6 months. Low performance may lead to
-          removal.
-        </p>
-        <h3>7. Clean-ups</h3>
-        <p>Inactive or low-quality artists may be removed after review.</p>
-        <h3>Prohibited Actions</h3>
-        <p>
-          Disrespect, rule violations, use of prototypes, joining other
-          companies.
-        </p>
-        <p><strong>Incorrect applications will not be reviewed.</strong></p>
-        <p><strong>Only successful candidates will be contacted.</strong></p>
+    <nav class="navbar">
+      <a href="../../index.html">Home Page</a>
+      <a href="../our_artists.html">Our Artists</a>
+      <div class="aboutUs">
+        <button class="aboutUsBtn">About Us &#9662;</button>
+        <div class="aboutUs-content">
+          <a href="../about_us.html">About Us</a>
+          <a href="../our_works.html">Our Works</a>
+          <a href="https://www.photo-pick.com/online/H8vS5PyL.link"
+            >Photobook</a
+          >
+        </div>
       </div>
+      <a href="audition.html">Audition Page</a>
+      <a href="../contacts.html">Contacts</a>
+    </nav>
+    <main class="audition-page">
+      <section class="audition-hero">
+        <p class="audition-small-title">AUDITIONS</p>
+        <h1>Welcome to Artist Auditions</h1>
+        <p class="audition-intro">
+          Discover your path with GB ENTERTAINMENT. Select a category below to
+          view specific audition guidelines and requirements.
+        </p>
+      </section>
 
-      <label>
-        <input type="checkbox" id="acceptRules" disabled />
-        I have read and accept the rules
-      </label>
-    </section>
+      <section class="audition-categories">
+        <div class="category-cards">
+          <a href="solo_audition.html" class="category-card">
+            <span class="category-number">01</span>
+            <div class="category-content">
+              <h3>Solo Artists</h3>
+              <p>
+                For vocalists and rappers aiming to build a distinct musical
+                identity and voice.
+              </p>
+              <div class="apply-link">Explore Category <span>&rarr;</span></div>
+            </div>
+          </a>
 
-    <form id="artist-form" class="disabled" enctype="multipart/form-data">
-      <input type="text" name="name" placeholder="First Name Only" required />
-      <input type="text" name="stage_name" placeholder="Stage Name" required />
-      <input type="number" name="age" placeholder="Age" required />
-      <textarea
-        name="experience"
-        placeholder="Describe your experience"
-      ></textarea>
-      <textarea
-        name="professional_experience"
-        placeholder="Professional experience (if any)"
-      ></textarea>
-      <input
-        type="text"
-        name="main_platform"
-        placeholder="Main platform + username"
-      />
-      <input
-        type="text"
-        name="other_socials"
-        placeholder="Other social media"
-      />
-      <label>Upload Photos</label>
-      <input type="file" name="photos" accept="image/*" multiple required />
-      <label>Upload Audio (Vocals/Rap)</label>
-      <input type="file" name="audio" accept="audio/*" required />
-      <button type="submit" disabled id="submitBtn">Submit Application</button>
-    </form>
+          <a href="audition-dance.html" class="category-card">
+            <span class="category-number">02</span>
+            <div class="category-content">
+              <h3>Dancers</h3>
+              <p>
+                For solo dancers and choreographers ready to showcase
+                exceptional technique and performance.
+              </p>
+              <div class="apply-link">Explore Category <span>&rarr;</span></div>
+            </div>
+          </a>
 
-    <script src="../../js/js.js"></script>
+          <a href="audition-groups.html" class="category-card">
+            <span class="category-number">03</span>
+            <div class="category-content">
+              <h3>Groups</h3>
+              <p>
+                For existing or forming groups, music bands, and vocal units.
+              </p>
+              <div class="apply-link">Explore Category <span>&rarr;</span></div>
+            </div>
+          </a>
+
+          <a href="audition-cover-dance.html" class="category-card">
+            <span class="category-number">04</span>
+            <div class="category-content">
+              <h3>Cover Dance Teams</h3>
+              <p>
+                For dance crews specializing in K-pop, pop, or other style dance
+                covers.
+              </p>
+              <div class="apply-link">Explore Category <span>&rarr;</span></div>
+            </div>
+          </a>
+
+          <a href="audition-models.html" class="category-card">
+            <span class="category-number">05</span>
+            <div class="category-content">
+              <h3>Models</h3>
+              <p>
+                For fashion, commercial, editorial, and concept media models.
+              </p>
+              <div class="apply-link">Explore Category <span>&rarr;</span></div>
+            </div>
+          </a>
+
+          <a href="audition-content.html" class="category-card">
+            <span class="category-number">06</span>
+            <div class="category-content">
+              <h3>Entertainment Content</h3>
+              <p>
+                For writers, journalists, content creators, and media
+                storytellers.
+              </p>
+              <div class="apply-link">Explore Category <span>&rarr;</span></div>
+            </div>
+          </a>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="footer-content">
+        <img
+          src="../../img/fotor-20240206184618.png"
+          class="logo"
+          alt="GB ENTERTAINMENT logo"
+        />
+        <div class="footer-text">
+          <span>
+            Telegram channel:
+            <a href="https://t.me/gbentertainmentso">@gbentertainmentso</a> |
+            Email:
+            <a href="mailto:gbentertainmentso@gmail.com">
+              gbentertainmentso@gmail.com
+            </a>
+          </span>
+          <span>Copyright © 2026 GB ENTERTAINMENT</span>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

@@ -10,7 +10,7 @@
     PHOTO_MAX_SIDE: 1600,
     PHOTO_QUALITY: 0.85,
 
-    MAX_TOTAL_MB: 28,
+    MAX_TOTAL_MB: 50,
   };
 
   const MB = 1024 * 1024;
@@ -46,7 +46,7 @@
   photosCount.textContent = `0 / ${CONFIG.MAX_PHOTOS} photos`;
 
   let photos = [];
-
+  
   const order = ["rules", "form", "thanks"];
 
   function showStep(name) {
@@ -66,8 +66,8 @@
   agree.addEventListener("change", () => {
     rulesContinue.disabled = !agree.checked;
   });
-    rulesContinue.disabled = !agree.checked;
-    
+  rulesContinue.disabled = !agree.checked;
+
   rulesContinue.addEventListener("click", () => {
     if (agree.checked) showStep("form");
   });
@@ -82,7 +82,7 @@
   const fileKey = (f) => `${f.name}|${f.size}|${f.lastModified}`;
 
   function setError(fieldName, message) {
-    const field = form.querySelector(`[data-field="${fieldName}"]`);
+    const field = form.querySelector(`.sa-field[data-field="${fieldName}"]`);
     if (!field) return;
     field.classList.toggle("has-error", Boolean(message));
     const p = field.querySelector(".sa-error");
@@ -106,13 +106,13 @@
   }
 
   function fieldLabel(fieldName) {
-    const field = form.querySelector(`[data-field="${fieldName}"]`);
+    const field = form.querySelector(`.sa-field[data-field="${fieldName}"]`);
     const lbl = field && field.querySelector("label:not(.sa-drop), .sa-label");
     return lbl ? lbl.textContent.replace("*", "").trim() : fieldName;
   }
 
   function goToField(fieldName) {
-    const field = form.querySelector(`[data-field="${fieldName}"]`);
+    const field = form.querySelector(`.sa-field[data-field="${fieldName}"]`);
     if (!field) return;
     field.scrollIntoView({ behavior: "smooth", block: "center" });
     const focusable = field.querySelector("input, textarea, select");
@@ -376,7 +376,7 @@
       renderSummary(errors);
       getSummary().scrollIntoView({ behavior: "smooth", block: "center" });
       errors.forEach(([f]) => {
-        const el = form.querySelector(`[data-field="${f}"]`);
+        const el = form.querySelector(`.sa-field[data-field="${f}"]`);
         if (el) el.classList.add("flash");
       });
       return false;

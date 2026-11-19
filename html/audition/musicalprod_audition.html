@@ -1,0 +1,451 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../css/navbar.css" />
+    <link rel="stylesheet" href="../../css/style.css" />
+    <link rel="stylesheet" href="../../css/footer.css" />
+    <link rel="stylesheet" href="../../css/solo_audition.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <title>Musical Producer Audition | GB ENTERTAINMENT</title>
+  </head>
+  <body>
+    <nav class="navbar">
+      <a href="../../index.html">Home Page</a>
+      <a href="../our_artists.html">Our Artists</a>
+      <div class="aboutUs">
+        <button class="aboutUsBtn">About Us &#9662;</button>
+        <div class="aboutUs-content">
+          <a href="../about_us.html">About Us</a>
+          <a href="../our_works.html">Our Works</a>
+        </div>
+      </div>
+      <a href="audition.html">Audition Page</a>
+      <a href="../contacts.html">Contacts</a>
+    </nav>
+
+    <main class="audition-page solo-page">
+      <section class="audition-hero">
+        <p class="audition-small-title">Musical Producer Audition</p>
+        <h1>Musical Producers Audition</h1>
+        <p class="audition-intro">
+          For producers who guide a song from the first idea to the final
+          release, shaping its sound, arrangement, and overall direction.
+        </p>
+      </section>
+
+      <ol class="sa-progress" id="saProgress" aria-label="Application progress">
+        <li class="is-active" data-progress="rules">
+          <span class="sa-progress-dot">1</span>
+          <span class="sa-progress-label">Rules</span>
+        </li>
+        <li data-progress="form">
+          <span class="sa-progress-dot">2</span>
+          <span class="sa-progress-label">Application</span>
+        </li>
+        <li data-progress="thanks">
+          <span class="sa-progress-dot">3</span>
+          <span class="sa-progress-label">Done</span>
+        </li>
+      </ol>
+
+      <div class="sa-wrap">
+        <section class="sa-step" id="stepRules" data-step="rules">
+          <div class="sa-card">
+            <h2>Audition Rules</h2>
+            <p class="sa-lead">
+              Please read the rules carefully before you apply.
+            </p>
+
+            <ol class="sa-rules">
+              <li>
+                <b>A Positive Atmosphere</b> <br />We believe great teamwork
+                grows from trust and mutual respect. We value kindness,
+                professionalism, and a supportive environment for everyone.
+              </li>
+              <li>
+                <b>Mutual Respect</b> <br />We ask all team members, regardless
+                of their position, to treat one another with fairness and
+                respect.
+              </li>
+              <li>
+                <b>Respectful Communication</b> <br />We ask that everyone
+                refrain from insulting colleagues or artists. Conflicts and
+                disrespectful behavior cannot be accepted within our team.
+              </li>
+              <li>
+                <b>A Responsible Approach to Work</b> <br />We appreciate it
+                when every staff member takes their duties seriously, meets
+                deadlines, and delivers high-quality results.
+              </li>
+              <li>
+                <b>Required Skills</b> <br /><br />
+                1. Lyricists, beatmakers, designers, mixing engineers, and
+                musical producers are expected to have experience working with
+                professional software.<br /><br />
+                2. PR-Producers are expected to actively support our artists and
+                help with their promotion. <br /><br />
+                3. Cooperation managers are expected to have experience in
+                establishing and maintaining collaborations. <br /><br />
+              </li>
+              <li>
+                <b>Additional Guidelines for PR-Producers</b> <br />We ask you
+                to submit a weekly report on your work progress. For example:
+                purchased artwork for 3–4 posts for a specific artist, wrote a
+                new large-scale article, prepared new practice materials,
+                purchased ads, and much more. In case of posts promotion, you
+                should show how it was before, and how it became after the
+                promotion. You will get a reminder to submit your report
+                weekly.<br /><br />
+                If you are unable to submit a report, please let us know in
+                advance. A missed report without prior notice will result in a
+                warning. <br /><br />
+                After 3 warnings, we will unfortunately have to part ways with
+                the team member. <br /><br />
+              </li>
+              <li>
+                <b>Payment</b> <br />As a thank-you for their ongoing
+                contribution, permanent staff members (PR-producers, video
+                editors, cooperation managers) receive a weekly gift of 15
+                stars, depending on their activity during the week. <br /><br />
+                Other staff members (lyricists, beatmakers, mixing engineers,
+                musical producers, designers) receive a gift of 25–50 stars
+                after each project, depending on the amount and complexity of
+                the work. <br /><br />
+                The payment may be raised depending on the amount of work done
+                for the project or throughout the week.
+              </li>
+              <li>
+                <b>Prohibited Actions</b> <br />1. Starting disputes. <br />2.
+                Using offensive language. <br />3. Not effectuating / ignoring
+                assignments from the directors. <br />4. Spreading rumors about
+                the company or its artists.
+              </li>
+              <li>
+                <b>Notes</b> <br />We kindly ask everyone to follow these
+                guidelines, as violations will result in removal from the
+                company. <br />Applications that are not completed correctly
+                will not be considered. <br />Only candidates who successfully
+                pass the audition will be contacted.<br />The contact time
+                variates between a day to a week.
+              </li>
+            </ol>
+
+            <label class="sa-check" for="agreeRules">
+              <input type="checkbox" id="agreeRules" />
+              <span class="sa-check-box" aria-hidden="true"></span>
+              <span class="sa-check-text"
+                >I have read the rules and agree to them</span
+              >
+            </label>
+
+            <div class="sa-actions">
+              <a href="staff_audition.html" class="sa-link-back"
+                >&larr; Back to categories</a
+              >
+              <button type="button" class="sa-btn" id="rulesContinue" disabled>
+                Continue
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <section class="sa-step" id="stepForm" data-step="form" hidden>
+          <div class="sa-card">
+            <h2>Your Application</h2>
+            <p class="sa-lead">
+              Fields marked with <span class="sa-req">*</span> are required.
+            </p>
+
+            <form id="soloForm" novalidate autocomplete="off">
+              <div class="sa-hp" aria-hidden="true">
+                <label for="website">Leave this field empty</label>
+                <input
+                  type="text"
+                  id="website"
+                  name="website"
+                  tabindex="-1"
+                  autocomplete="off"
+                />
+              </div>
+
+              <div class="sa-grid">
+                <div class="sa-field" data-field="firstName">
+                  <label for="firstName"
+                    >First name <span class="sa-req">*</span></label
+                  >
+                  <input
+                    type="text"
+                    id="firstName"
+                    name="firstName"
+                    maxlength="60"
+                  />
+                  <p class="sa-error" aria-live="polite"></p>
+                </div>
+
+                <div class="sa-field" data-field="stage_name">
+                  <label for="stage_name"
+                    >Pseudonym <span class="sa-req">*</span></label
+                  >
+                  <input
+                    type="text"
+                    id="stage_name"
+                    name="stage_name"
+                    maxlength="60"
+                  />
+                  <p class="sa-error" aria-live="polite"></p>
+                </div>
+              </div>
+
+              <div class="sa-field" data-field="age">
+                <label for="age">Age <span class="sa-req">*</span></label>
+                <input
+                  type="number"
+                  id="age"
+                  name="age"
+                  min="10"
+                  max="50"
+                  inputmode="numeric"
+                />
+                <p class="sa-error" aria-live="polite"></p>
+              </div>
+
+              <div class="sa-field" data-field="experience">
+                <label for="experience"
+                  >Experience <span class="sa-req">*</span></label
+                >
+                <textarea
+                  id="experience"
+                  name="experience"
+                  rows="5"
+                  maxlength="2000"
+                  placeholder="Tell us about your background, previous projects, training, performances…"
+                ></textarea>
+                <p class="sa-error" aria-live="polite"></p>
+              </div>
+              <div class="sa-field" data-field="skills">
+                <label for="skills">Lyrics <span class="sa-req">*</span></label>
+                <p class="sa-hint">
+                  Paste 1–3 samples of your original lyrics (a verse, a hook, or
+                  a full song).
+                </p>
+                <textarea
+                  id="skills"
+                  name="skills"
+                  rows="6"
+                  maxlength="5000"
+                  placeholder="Paste your lyrics here…"
+                ></textarea>
+                <p class="sa-error" aria-live="polite"></p>
+              </div>
+
+              <div
+                class="sa-field"
+                data-field="audio"
+                data-required="true"
+                data-min="1"
+                data-max="3"
+              >
+                <span class="sa-label"
+                  >Beats <span class="sa-req">*</span></span
+                >
+                <p class="sa-hint">
+                  Upload 1–3 of your best original beats or instrumentals (MP3,
+                  WAV, etc.).
+                </p>
+                <label class="sa-drop" for="beatsInput">
+                  <input
+                    type="file"
+                    id="beatsInput"
+                    accept="audio/*"
+                    multiple
+                  />
+                  <span class="sa-drop-icon" aria-hidden="true">+</span>
+                  <span class="sa-drop-title"
+                    >Click to upload or drag &amp; drop</span
+                  >
+                  <span class="sa-drop-sub">0 / 3 files</span>
+                </label>
+                <ul class="sa-files"></ul>
+                <p class="sa-error" aria-live="polite"></p>
+              </div>
+
+              <div
+                class="sa-field"
+                data-field="audio_before"
+                data-required="true"
+                data-min="2"
+                data-max="3"
+              >
+                <span class="sa-label"
+                  >Mixing: before (unmixed) <span class="sa-req">*</span></span
+                >
+                <p class="sa-hint">
+                  Upload the raw, unmixed version of a track you mixed (2–3
+                  files).
+                </p>
+                <label class="sa-drop" for="beforeInput">
+                  <input
+                    type="file"
+                    id="beforeInput"
+                    accept="audio/*"
+                    multiple
+                  />
+                  <span class="sa-drop-icon" aria-hidden="true">+</span>
+                  <span class="sa-drop-title"
+                    >Click to upload or drag &amp; drop</span
+                  >
+                  <span class="sa-drop-sub">0 / 3 files</span>
+                </label>
+                <ul class="sa-files"></ul>
+                <p class="sa-error" aria-live="polite"></p>
+              </div>
+
+              <div
+                class="sa-field"
+                data-field="audio_after"
+                data-required="true"
+                data-min="2"
+                data-max="3"
+              >
+                <span class="sa-label"
+                  >Mixing: after (your mix) <span class="sa-req">*</span></span
+                >
+                <p class="sa-hint">
+                  Upload your finished mix of the same track(s), in the same
+                  order (2–3 files).
+                </p>
+                <label class="sa-drop" for="afterInput">
+                  <input
+                    type="file"
+                    id="afterInput"
+                    accept="audio/*"
+                    multiple
+                  />
+                  <span class="sa-drop-icon" aria-hidden="true">+</span>
+                  <span class="sa-drop-title"
+                    >Click to upload or drag &amp; drop</span
+                  >
+                  <span class="sa-drop-sub">0 / 3 files</span>
+                </label>
+                <ul class="sa-files"></ul>
+                <p class="sa-error" aria-live="polite"></p>
+              </div>
+              <div class="sa-or"><span>or</span></div>
+              <label class="sa-sublabel" for="beatsLinks"
+                >Paste links (SoundCloud, YouTube, Google Drive, etc.)</label
+              >
+              <textarea
+                id="beatsLinks"
+                class="sa-links"
+                rows="3"
+                placeholder="One link per line (up to 5)"
+              ></textarea>
+              <p class="sa-hint sa-hint-after">
+                Make sure the link can be opened by anyone who has it (e.g.
+                Google Drive: "Anyone with the link can view").
+              </p>
+
+              <div class="sa-grid">
+                <div class="sa-field" data-field="contactType">
+                  <label for="contactType"
+                    >Connection type <span class="sa-req">*</span></label
+                  >
+                  <select id="contactType" name="contactType">
+                    <option value="">Choose…</option>
+                    <option value="telegram">Telegram</option>
+                    <option value="email">Email</option>
+                    <option value="other">Other social media</option>
+                  </select>
+                  <p class="sa-error" aria-live="polite"></p>
+                </div>
+
+                <div class="sa-field" data-field="contactValue">
+                  <label for="contactValue" id="contactValueLabel"
+                    >Username / address <span class="sa-req">*</span></label
+                  >
+                  <input
+                    type="text"
+                    id="contactValue"
+                    name="contactValue"
+                    maxlength="120"
+                    disabled
+                    placeholder="Choose a connection type first"
+                  />
+                  <p class="sa-error" aria-live="polite"></p>
+                </div>
+              </div>
+
+              <div
+                class="sa-field"
+                data-field="contactPlatform"
+                id="contactPlatformField"
+                hidden
+              >
+                <label for="contactPlatform"
+                  >Which social media? <span class="sa-req">*</span></label
+                >
+                <input
+                  type="text"
+                  id="contactPlatform"
+                  name="contactPlatform"
+                  maxlength="60"
+                  placeholder="e.g. Instagram, Discord, WhatsApp…"
+                />
+                <p class="sa-error" aria-live="polite"></p>
+              </div>
+
+              <div class="sa-status" id="formStatus" role="alert" hidden></div>
+
+              <div class="sa-actions">
+                <button type="button" class="sa-link-back" id="backToRules">
+                  &larr; Back to rules
+                </button>
+                <button type="submit" class="sa-btn" id="submitBtn">
+                  <span class="sa-btn-text">Continue</span>
+                  <span class="sa-spinner" aria-hidden="true"></span>
+                </button>
+              </div>
+            </form>
+          </div>
+        </section>
+
+        <section class="sa-step" id="stepThanks" data-step="thanks" hidden>
+          <div class="sa-card sa-thanks">
+            <div class="sa-thanks-icon" aria-hidden="true">&#10003;</div>
+            <h2>Thank you for applying!</h2>
+            <p class="sa-lead">We'll get back to you soon.</p>
+            <a href="audition.html" class="sa-btn">Back to Audition Page</a>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-content">
+        <img
+          src="../../img/fotor-20240206184618.png"
+          class="logo"
+          alt="GB ENTERTAINMENT logo"
+        />
+        <div class="footer-text">
+          <span>
+            Telegram channel:
+            <a href="https://t.me/gbentertainmentso">@gbentertainmentso</a> |
+            Email:
+            <a href="mailto:gbentertainmentso@gmail.com">
+              gbentertainmentso@gmail.com
+            </a>
+          </span>
+          <span>Copyright © 2026 GB ENTERTAINMENT</span>
+        </div>
+      </div>
+    </footer>
+
+    <script src="../../js/staff_form.js"></script>
+  </body>
+</html>

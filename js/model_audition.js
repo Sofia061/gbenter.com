@@ -8,7 +8,7 @@
     MIN_PHOTOS: 10,
     MAX_PHOTOS: 12,
     PHOTO_MAX_SIDE: 1600,
-    PHOTO_QUALITY: 0.85,
+    PHOTO_QUALITY: 50,
 
     MAX_TOTAL_MB: 28,
   };
@@ -45,8 +45,7 @@
 
   photosCount.textContent = `0 / ${CONFIG.MAX_PHOTOS} photos`;
 
-    let photos = [];
-
+  let photos = [];
   const order = ["rules", "form", "thanks"];
 
   function showStep(name) {
@@ -82,7 +81,7 @@
   const fileKey = (f) => `${f.name}|${f.size}|${f.lastModified}`;
 
   function setError(fieldName, message) {
-    const field = form.querySelector(`[data-field="${fieldName}"]`);
+    const field = form.querySelector(`.sa-field[data-field="${fieldName}"]`);
     if (!field) return;
     field.classList.toggle("has-error", Boolean(message));
     const p = field.querySelector(".sa-error");
@@ -106,13 +105,13 @@
   }
 
   function fieldLabel(fieldName) {
-    const field = form.querySelector(`[data-field="${fieldName}"]`);
+    const field = form.querySelector(`.sa-field[data-field="${fieldName}"]`);
     const lbl = field && field.querySelector("label:not(.sa-drop), .sa-label");
     return lbl ? lbl.textContent.replace("*", "").trim() : fieldName;
   }
 
   function goToField(fieldName) {
-    const field = form.querySelector(`[data-field="${fieldName}"]`);
+    const field = form.querySelector(`.sa-field[data-field="${fieldName}"]`);
     if (!field) return;
     field.scrollIntoView({ behavior: "smooth", block: "center" });
     const focusable = field.querySelector("input, textarea, select");
@@ -304,7 +303,7 @@
 
   function validate() {
     clearErrors();
-    const errors = [];
+    const errors = []; // [fieldName, message]
     const val = (el) => el.value.trim();
 
     if (!val($("firstName")))
@@ -369,7 +368,7 @@
       renderSummary(errors);
       getSummary().scrollIntoView({ behavior: "smooth", block: "center" });
       errors.forEach(([f]) => {
-        const el = form.querySelector(`[data-field="${f}"]`);
+        const el = form.querySelector(`.sa-field[data-field="${f}"]`);
         if (el) el.classList.add("flash");
       });
       return false;
@@ -441,8 +440,8 @@
         data: await readAsBase64(file),
       };
     }
-    }
-    
+  }
+
   function setLoading(on) {
     submitBtn.disabled = on;
     submitBtn.classList.toggle("is-loading", on);
@@ -492,7 +491,7 @@
         contactType: type,
         contactPlatform: type === "other" ? contactPlatform.value.trim() : "",
         contactValue: contactValue.value.trim(),
-        website: $("website").value,
+        website: $("website").value, // honeypot
         photos: photoData,
       };
 

@@ -21,8 +21,8 @@
     MAX_MEMBER_SKILLS: 2,
     MAX_COVER_FILES: 2,
     MAX_LINKS: 3,
-    MAX_SKILL_MB: 100,
-    MAX_TOTAL_MB: 500,
+    MAX_SKILL_MB: 50,
+    MAX_TOTAL_MB: 50,
   };
 
   const MB = 1024 * 1024;
@@ -93,7 +93,8 @@
   );
   backToRules.addEventListener("click", () => showStep("rules"));
 
-  const fieldByKey = (key) => form.querySelector(`[data-field="${key}"]`);
+  const fieldByKey = (key) =>
+    form.querySelector(`.sa-field[data-field="${key}"]`);
 
   function setError(key, message) {
     const field = fieldByKey(key);
@@ -240,6 +241,7 @@
     const list = field.querySelector(".sa-thumbs, .sa-files");
     const linksEl = field.querySelector("textarea");
     let items = [];
+
     const unit = isPhoto ? "photos" : "files";
 
     function render() {
@@ -414,7 +416,7 @@
     el.className = "gm-member";
     el.dataset.member = i;
     el.innerHTML = `
-      <div class="gm-head"><span class="gm-num">${pad(i)}</span><span class="gm-title"> Member ${i}</span></div>
+      <div class="gm-head"><span class="gm-num">${pad(i)}</span><span class="gm-title">Member ${i}</span></div>
 
       <div class="sa-grid">
         <div class="sa-field" data-field="m${i}_stage_name">
@@ -432,13 +434,20 @@
 
       <div class="sa-field" data-field="m${i}_experience">
         <label for="m${i}_experience">Experience <span class="sa-req">*</span></label>
-        <p class="sa-hint">Tell us about your musical background, previous projects, training, performances…</p>
+        <p class="sa-hint">Describe your experience \u2013 e.g. ${CONFIG.EXP_EXAMPLE}.</p>
         <textarea id="m${i}_experience" rows="4" maxlength="2000"></textarea>
         <p class="sa-error" aria-live="polite"></p>
       </div>
-      
-      <div class="gm-photos"></div>
-      <div class="gm-skills"></div>`;
+
+      <div class="sa-field" data-field="m${i}_pro_experience">
+        <label for="m${i}_pro_experience">Professional experience <span class="sa-optional">(if any)</span></label>
+        <p class="sa-hint">If yes, where? Describe it.</p>
+        <textarea id="m${i}_pro_experience" rows="3" maxlength="2000"></textarea>
+        <p class="sa-error" aria-live="polite"></p>
+      </div>
+
+      <div class="gm-skills"></div>
+      <div class="gm-photos"></div>`;
 
     const skills = createUploader({
       key: `m${i}_skills`,
@@ -452,7 +461,7 @@
     const photos = createUploader({
       key: `m${i}_photos`,
       label: "Member photos",
-      hint: `Separate for each member, professional ones preferred. JPG, PNG or WEBP. (${CONFIG.MIN_PHOTOS}\u2013${CONFIG.MAX_PHOTOS}).`,
+      hint: `Upload several high-quality photos of yourself (${CONFIG.MIN_PHOTOS}\u2013${CONFIG.MAX_PHOTOS}).`,
       kind: "photos",
       max: CONFIG.MAX_PHOTOS,
       onChange: updateSize,

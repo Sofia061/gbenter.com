@@ -21,8 +21,8 @@
     MAX_MEMBER_SKILLS: 2,
     MAX_COVER_FILES: 2,
     MAX_LINKS: 3,
-    MAX_SKILL_MB: 50,
-    MAX_TOTAL_MB: 50,
+    MAX_SKILL_MB: 20,
+    MAX_TOTAL_MB: 28,
   };
 
   const MB = 1024 * 1024;

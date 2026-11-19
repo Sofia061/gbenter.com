@@ -12,8 +12,8 @@
 
     MAX_SKILLS: 3,
     MAX_LINKS: 5,
-    MAX_SKILL_MB: 500,
-    MAX_TOTAL_MB: 1000,
+    MAX_SKILL_MB: 20,
+    MAX_TOTAL_MB: 28,
   };
 
   const MB = 1024 * 1024;

@@ -335,20 +335,28 @@
                 <ul class="sa-files"></ul>
                 <p class="sa-error" aria-live="polite"></p>
               </div>
-              <div class="sa-or"><span>or</span></div>
-              <label class="sa-sublabel" for="beatsLinks"
-                >Paste links (SoundCloud, YouTube, Google Drive, etc.)</label
+              <div
+                class="sa-field"
+                data-field="audio"
+                data-required="true"
+                data-min="1"
+                data-max="3"
               >
-              <textarea
-                id="beatsLinks"
-                class="sa-links"
-                rows="3"
-                placeholder="One link per line (up to 5)"
-              ></textarea>
-              <p class="sa-hint sa-hint-after">
-                Make sure the link can be opened by anyone who has it (e.g.
-                Google Drive: "Anyone with the link can view").
-              </p>
+                <div class="sa-or"><span>or</span></div>
+                <label class="sa-sublabel" for="beatsLinks"
+                  >Paste links (SoundCloud, YouTube, Google Drive, etc.)</label
+                >
+                <textarea
+                  id="beatsLinks"
+                  class="sa-links"
+                  rows="3"
+                  placeholder="One link per line (up to 5)"
+                ></textarea>
+                <p class="sa-hint sa-hint-after">
+                  Make sure the link can be opened by anyone who has it.
+                </p>
+                <p class="sa-error" aria-live="polite"></p>
+              </div>
 
               <div class="sa-grid">
                 <div class="sa-field" data-field="contactType">

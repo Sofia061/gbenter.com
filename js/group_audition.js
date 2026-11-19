@@ -1,3 +1,6 @@
+/* ===== GROUP / COVER DANCE TEAM AUDITION: rules -> form -> thank you =====
+   One script for both pages. The page type is set by data-* attributes on
+   <main class="group-page"> (see group_audition.html / cdt_audition.html). */
 (() => {
   "use strict";
 
@@ -7,28 +10,31 @@
     SCRIPT_URL:
       "https://script.google.com/macros/s/AKfycbxSB3mPI4Bb5FO6NRrB1WBM-Dpen2v5vesRK6kEO-9rxoIfDQ0pBkWeNrIl-KMiufnH/exec",
 
-    CATEGORY: page.dataset.category,
-    NOUN: page.dataset.noun,
+    CATEGORY: page.dataset.category, // "Group" or "Cover Dance Team"
+    NOUN: page.dataset.noun, // "group" or "team"
     EXP_EXAMPLE: page.dataset.expExample,
     MIN_MEMBERS: Number(page.dataset.minMembers),
     MAX_MEMBERS: Number(page.dataset.maxMembers),
 
-    MIN_PHOTOS: 2,
-    MAX_PHOTOS: 4,
+    MIN_PHOTOS: 2, // per member
+    MAX_PHOTOS: 4, // per member
     PHOTO_MAX_SIDE: 1600,
     PHOTO_QUALITY: 0.85,
 
-    MAX_MEMBER_SKILLS: 2,
-    MAX_COVER_FILES: 2,
-    MAX_LINKS: 3,
-    MAX_SKILL_MB: 20,
-    MAX_TOTAL_MB: 28,
+    MAX_MEMBER_SKILLS: 2, // audio/video files per member
+    MAX_COVER_FILES: 2, // joint cover files
+    MAX_LINKS: 3, // links per skills / cover field
+    MAX_SKILL_MB: 20, // per audio/video file
+    MAX_TOTAL_MB: 28, // everything together (Google Apps Script limit is ~50 MB per request)
   };
 
   const MB = 1024 * 1024;
   const $ = (id) => document.getElementById(id);
   const pad = (n) => String(n).padStart(2, "0");
 
+  /* ------------------------------------------------------------------
+     ELEMENTS
+     ------------------------------------------------------------------ */
   const steps = {
     rules: $("stepRules"),
     form: $("stepForm"),
@@ -54,13 +60,17 @@
   const contactPlatformField = $("contactPlatformField");
   const contactPlatform = $("contactPlatform");
 
+  /* ------------------------------------------------------------------
+     HELPERS
+     ------------------------------------------------------------------ */
   const fmtSize = (bytes) =>
     bytes >= MB
       ? (bytes / MB).toFixed(1) + " MB"
       : Math.max(1, Math.round(bytes / 1024)) + " KB";
 
   const fileKey = (f) => `${f.name}|${f.size}|${f.lastModified}`;
-  const val = (el) => el.value.trim();
+  const val = (el) =>
+    el && typeof el.value === "string" ? el.value.trim() : ""; // safe if a field is missing
   const LINK_RE = /^https?:\/\/[^\s.]+\.[^\s]{2,}$/i;
 
   function splitLinks(text) {
@@ -70,6 +80,9 @@
       .filter(Boolean);
   }
 
+  /* ------------------------------------------------------------------
+     STEP NAVIGATION
+     ------------------------------------------------------------------ */
   const order = ["rules", "form", "thanks"];
 
   function showStep(name) {
@@ -93,6 +106,9 @@
   );
   backToRules.addEventListener("click", () => showStep("rules"));
 
+  /* ------------------------------------------------------------------
+     ERRORS + SUMMARY (fields are found by their data-field key)
+     ------------------------------------------------------------------ */
   const fieldByKey = (key) =>
     form.querySelector(`.sa-field[data-field="${key}"]`);
 
@@ -197,6 +213,7 @@
     statusBox.hidden = true;
   }
 
+  // clear a field's error as soon as the user edits it (file inputs handle it themselves)
   function onEdit(e) {
     if (e.target.type === "file") return;
     const field = e.target.closest(".sa-field");
@@ -208,7 +225,10 @@
   form.addEventListener("input", onEdit);
   form.addEventListener("change", onEdit);
 
-  const uploaders = [];
+  /* ------------------------------------------------------------------
+     UPLOADER (photos, or audio/video files with optional links)
+     ------------------------------------------------------------------ */
+  const uploaders = []; // every live uploader (for the size counter)
 
   function createUploader(o) {
     const isPhoto = o.kind === "photos";
@@ -240,7 +260,7 @@
     const sub = field.querySelector(".sa-drop-sub");
     const list = field.querySelector(".sa-thumbs, .sa-files");
     const linksEl = field.querySelector("textarea");
-    let items = [];
+    let items = []; // { file, url }
 
     const unit = isPhoto ? "photos" : "files";
 
@@ -384,6 +404,9 @@
     return api;
   }
 
+  /* ------------------------------------------------------------------
+     SIZE COUNTER
+     ------------------------------------------------------------------ */
   function updateSize() {
     const total = uploaders.reduce((s, u) => s + u.estimate(), 0);
     const over = total > CONFIG.MAX_TOTAL_MB * MB;
@@ -397,6 +420,9 @@
       : `Upload limit: ${CONFIG.MAX_TOTAL_MB} MB in total for all files. For bigger files, paste a link instead.`;
   }
 
+  /* ------------------------------------------------------------------
+     GROUP-LEVEL JOINT COVER
+     ------------------------------------------------------------------ */
   const coverMount = $("coverMount");
   const cover = createUploader({
     key: coverMount.dataset.key,
@@ -409,6 +435,9 @@
   });
   coverMount.replaceWith(cover.field);
 
+  /* ------------------------------------------------------------------
+     MEMBERS
+     ------------------------------------------------------------------ */
   const members = [];
 
   function createMember(i) {
@@ -556,6 +585,9 @@
     syncCount(true);
   });
 
+  /* ------------------------------------------------------------------
+     CONNECTION TYPE
+     ------------------------------------------------------------------ */
   const contactModes = {
     telegram: {
       label: "Telegram username",
@@ -593,6 +625,9 @@
     if (contactType.value !== "other") contactPlatform.value = "";
   });
 
+  /* ------------------------------------------------------------------
+     VALIDATION
+     ------------------------------------------------------------------ */
   function validate() {
     clearErrors();
     const errors = [];
@@ -673,11 +708,24 @@
     return true;
   }
 
+  /* ------------------------------------------------------------------
+     FILE PREPARATION
+     ------------------------------------------------------------------ */
   function readAsBase64(blob) {
     return new Promise((resolve, reject) => {
       const r = new FileReader();
       r.onload = () => resolve(String(r.result).split(",")[1] || "");
-      r.onerror = () => reject(new Error("Could not read a file."));
+      r.onerror = () => {
+        const label =
+          blob && blob.name ? `"${blob.name}"` : "one of your files";
+        const reason = r.error && r.error.name ? ` (${r.error.name})` : "";
+        reject(
+          new Error(
+            `Could not read ${label}${reason}. Please re-select the file (make sure it is saved on your device, ` +
+              `not "online only" in a cloud folder, and not open in another program), or paste a link instead.`,
+          ),
+        );
+      };
       r.readAsDataURL(blob);
     });
   }
@@ -748,6 +796,9 @@
     };
   }
 
+  /* ------------------------------------------------------------------
+     SUBMIT
+     ------------------------------------------------------------------ */
   function setLoading(on) {
     submitBtn.disabled = on;
     submitBtn.classList.toggle("is-loading", on);
@@ -815,10 +866,11 @@
         contactType: type,
         contactPlatform: type === "other" ? val(contactPlatform) : "",
         contactValue: val(contactValue),
-        website: $("website").value,
+        website: ($("website") || {}).value || "", // honeypot
         members: membersPayload,
       };
 
+      // text/plain avoids a CORS preflight, which Google Apps Script doesn't support
       const res = await fetch(CONFIG.SCRIPT_URL, {
         method: "POST",
         headers: { "Content-Type": "text/plain;charset=utf-8" },
@@ -836,7 +888,8 @@
     } catch (err) {
       console.error(err);
       showStatus(
-        err instanceof TypeError
+        err instanceof TypeError &&
+          /fetch|network|load failed/i.test(err.message)
           ? "Network error. Please check your connection and try again."
           : err.message || "Something went wrong. Please try again.",
       );
